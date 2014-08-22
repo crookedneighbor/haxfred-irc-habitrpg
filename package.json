@@ -18,14 +18,7 @@
     "name": "Blade Barringer"
   },
   "license": "ISC",
-  "readme": "haxfred-irc-habitrpg\n====================\n\nIRC adaptor for habitrpg (to be used in conjunction with upvote adaptor)\n\n\n###Example JSon config for users\n```\n{ \n\tircUser1 : [user1-ID, user1-API],\n\tircUser2 : [user2-ID, user2-API]\n}\n```\n\n###Todo's\n* User ID and API should not be in the config file (IE, something that might be pushed to a github repo). Maybe config would be the path to a file?\n* Make id name configurable\n",
-  "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/crookedneighbor/haxfred-irc-habitrpg/issues"
-  },
-  "homepage": "https://github.com/crookedneighbor/haxfred-irc-habitrpg",
-  "_id": "haxfred-irc-habitrpg@0.0.1",
-  "_shasum": "c7aeb2d52e5c1ab8d446b3ea931c266e71eaa42c",
-  "_resolved": "git://github.com/crookedneighbor/haxfred-irc-habitrpg#1d57b74b3ad9f02e26ec795f1f9fe7cf0756b63c",
-  "_from": "haxfred-irc-habitrpg@git://github.com/crookedneighbor/haxfred-irc-habitrpg"
+  }
 }
