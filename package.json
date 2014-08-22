@@ -8,6 +8,7 @@
   },
   "main": "./lib/haxfred-irc-habitrpg",
   "dependencies": {
+    "haxfred-irc": "",
     "habitrpg-api": "0.0.1"
   },
   "devDependencies": {},
