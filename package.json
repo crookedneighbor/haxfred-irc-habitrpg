@@ -13,8 +13,8 @@
     "test": "mocha -w"
   },
   "dependencies": {
-    "habitrpg-api": "0.0.1"
-    "haxfred-irc": "git://github.com/haxiom/haxfred-irc"
+    "habitrpg-api": "",
+    "haxfred-irc": "haxiom/haxfred-irc"
   },
   "devDependencies": {
     "chai": "^1.9.1",
@@ -22,7 +22,7 @@
     "mocha": "^1.21.4",
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0"
-  }
+  },
   "author": {
     "name": "Blade Barringer"
   },
