@@ -1,6 +1,6 @@
 {
   "name": "haxfred-irc-habitrpg",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "IRC adaptor for HabitRPG (to be used in conjunction with haxfred-irc-upvote adaptor). When Haxfred emits an upvote, the module checks if the recipient of the upvote is listed in the HabitRPGUsers config, and if the user is, Haxfred sends some experience and gold to the user's HabitRPG account.",
   "repository": {
     "url": "https://github.com/crookedneighbor/haxfred-irc-habitrpg"
