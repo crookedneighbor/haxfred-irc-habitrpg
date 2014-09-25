@@ -8,7 +8,7 @@ This should be installed in conjunction with [haxfred-irc](https://github.com/ha
 
 You must have a config file with the usernames of your irc users and their UUIDs and API Tokens from [HabitRPG](https://habitrpg.com). The file can be called whatever you want, but the path to the file must be determined in Haxfred's config.json with the key name "HabitRPGUsers". If the key is not found, the module will not load. The path of the config is relative to the Haxfred's location.
 
-###Example Json config for HabitRPGUsers
+####Example Json config for HabitRPGUsers
 ```
 { 
 	"ircUserName" : {
@@ -22,13 +22,13 @@ You must have a config file with the usernames of your irc users and their UUIDs
 }
 ```
 
-###Finding your HabitRPG UUID and Token
+####Finding your HabitRPG UUID and Token
 Both of these can be found by logging into [HabitRPG](https://habitrpg.com), navigating to your [account settings and choosing API](https://habitrpg.com/#/options/settings/api).
 
-###Setting the name of the habit
+####Setting the name of the habit
 You can set the name of the habit that gets added to your user's accounts by adding a HabitRPG_id key to Haxfred's config.json. If no id is specified, it will use the id "haxfred".
 
-###Example config.json keys
+####Example config.json keys
 ```
 {
 ...
