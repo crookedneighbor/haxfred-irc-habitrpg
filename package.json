@@ -1,18 +1,27 @@
 {
   "name": "haxfred-irc-habitrpg",
-  "version": "0.0.1",
-  "description": "haxfred-irc-habitrpg ====================",
+  "version": "1.0.0",
+  "description": "IRC adaptor for HabitRPG (to be used in conjunction with haxfred-irc-upvote adaptor). When Haxfred emits an upvote, the module checks if the recipient of the upvote is listed in the HabitRPGUsers config, and if the user is, Haxfred sends some experience and gold to the user's HabitRPG account.",
   "repository": {
     "url": "https://github.com/crookedneighbor/haxfred-irc-habitrpg"
   },
   "main": "./lib/haxfred-irc-habitrpg",
-  "dependencies": {
-    "haxfred-irc": "",
-    "habitrpg-api": "0.0.1"
+  "directories": {
+    "test": "test"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -w"
+  },
+  "dependencies": {
+    "habitrpg-api": "",
+    "haxfred-irc": "haxiom/haxfred-irc"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "haxfred": "git://github.com/haxiom/haxfred#development",
+    "mocha": "^1.21.4",
+    "sinon": "^1.10.3",
+    "sinon-chai": "^2.5.0"
   },
   "author": {
     "name": "Blade Barringer"

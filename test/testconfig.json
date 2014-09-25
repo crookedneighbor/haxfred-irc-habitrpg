@@ -1,0 +1,10 @@
+{
+  "Alice": {
+    "uuid": "ping",
+    "token": "pong"
+  },
+  "boB": {
+    "uuid": "foo",
+    "token": "bar"
+  }
+}
