@@ -32,7 +32,7 @@ You can set the name of the habit that gets added to your user's accounts by add
 ```
 {
 ...
-	"haxbitRPGUsers": "./config-files/habitrpgusers.json",
+	"habitRPGUsers": "./config-files/habitrpgusers.json",
 	"habitRPG_id": "upvote",
 ...
 }
