@@ -24,7 +24,7 @@ describe('Sending Data to HabitRPG', function () {
       channels: [
         '#foo'
       ],
-      habitRPGUsers: '/../test/testconfig.json',
+      habitRPGUsers: '../../../test/testconfig.json',
       rootDir: path.resolve(__dirname, '../lib')
     });
 
