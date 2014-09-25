@@ -11,11 +11,11 @@ You must have a config file with the usernames of your irc users and their UUIDs
 ####Example Json config for HabitRPGUsers
 ```
 { 
-	"ircUserName" : {
+  "ircUserName" : {
     "uuid": "UUID-From-Habit-RPG",
     "token": "API-Token-From-Habit-RPG"
   },
-	"anotherUserName" : {
+  "anotherUserName" : {
     "uuid": "UUID-From-Habit-RPG",
     "token": "API-Token-From-Habit-RPG"
   }

@@ -25,6 +25,13 @@ describe('Sending Data to HabitRPG', function () {
         '#foo'
       ],
       habitRPGUsers: '../../../test/testconfig.json',
+      habitRPGEmits: {
+        "irc.upvote": {
+          recipient: "recipient",
+          id: "upvote",
+          direction: true
+        }
+      },
       rootDir: path.resolve(__dirname, '../lib')
     });
 
@@ -47,7 +54,7 @@ describe('Sending Data to HabitRPG', function () {
            recipient: 'Alice',
            sender: 'bob',
            onComplete: function() {
-             sinon.assert.calledWithMatch(helpers.sendToHabit, "ping", "pong", "haxfred", true);
+             sinon.assert.calledWithMatch(helpers.sendToHabit, "ping", "pong", "upvote", true);
              done();
            }
         });
@@ -59,7 +66,7 @@ describe('Sending Data to HabitRPG', function () {
            recipient: 'JERK',
            sender: 'bob',
            onComplete: function() {
-             sinon.assert.neverCalledWith(helpers.sendToHabit, "ping", "pong", "haxfred", true);
+             sinon.assert.neverCalledWith(helpers.sendToHabit, "ping", "pong", "upvote", true);
              done();
            }
         });
