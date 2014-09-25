@@ -23,7 +23,7 @@ You must have a config file with the usernames of your irc users and their UUIDs
 ```
 
 ###Finding your HabitRPG UUID and Token
-Both of these can be found by logging into [HabitRPG](https://habitrpg.com), navigating to your account settings and choosing API.
+Both of these can be found by logging into [HabitRPG](https://habitrpg.com), navigating to your [account settings and choosing API](https://habitrpg.com/#/options/settings/api).
 
 ###Setting the name of the habit
 You can set the name of the habit that gets added to your user's accounts by adding a HabitRPG_id key to Haxfred's config.json. If no id is specified, it will use the id "haxfred".
