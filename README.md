@@ -11,11 +11,11 @@ You must have a config file with the usernames of your irc users and their UUIDs
 ####Example Json config for HabitRPGUsers
 ```
 { 
-	"ircUserName" : {
+  "ircUserName" : {
     "uuid": "UUID-From-Habit-RPG",
     "token": "API-Token-From-Habit-RPG"
   },
-	"anotherUserName" : {
+  "anotherUserName" : {
     "uuid": "UUID-From-Habit-RPG",
     "token": "API-Token-From-Habit-RPG"
   }
@@ -32,8 +32,8 @@ You can set the name of the habit that gets added to your user's accounts by add
 ```
 {
 ...
-	"haxbitRPGUsers": "./config-files/habitrpgusers.json",
-	"habitRPG_id": "upvote",
+  "haxbitRPGUsers": "./config-files/habitrpgusers.json",
+  "habitRPG_id": "upvote",
 ...
 }
 
