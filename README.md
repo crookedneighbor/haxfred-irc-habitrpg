@@ -40,5 +40,4 @@ You can set the name of the habit that gets added to your user's accounts by add
 ```
 
 ##Todo's
-* Make kinds of emits completely configurable
 * Work on Users module that can pull uuid and token from database, rather than from a file.
