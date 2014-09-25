@@ -20,15 +20,11 @@ describe('Sending Data to HabitRPG', function () {
   beforeEach(function() {
     haxfred = new Haxfred({
       adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-irc-habitrpg'],
-      // Config is necessary to pass
-      // @TODO determine how to deal with lack of config
-      // haxfred-irc doesnt care if the server isnt defined.
-      // It probably shouldnt care about the rest of its config.
       nicks: [ 'haxfred' ],
       channels: [
         '#foo'
       ],
-      habitRPGUsers: '../test/testconfig.json',
+      habitRPGUsers: '/../test/testconfig.json',
       rootDir: path.resolve(__dirname, '../lib')
     });
 
@@ -55,8 +51,6 @@ describe('Sending Data to HabitRPG', function () {
              done();
            }
         });
-
-
      });
 
      it('username is not in config file, should not call sendToHabit()', function(done){
@@ -69,27 +63,11 @@ describe('Sending Data to HabitRPG', function () {
              done();
            }
         });
-
-
      });
    });
 
    /*
-   describe('sendToHabit()', function() {
-     beforeEach(function() {
-       sinon.stub(habitapi, "updateTaskScore");
-     });
-
-     afterEach(function() {
-       habitUser.updateTaskScore.restore();
-     });
-
-     it('calls habitapi.user.updateTaskScore()', function(done) {
-       helpers.sendToHabit('alice', 'apiKeyMan', 'robotcop', true);
-       sinon.assert.calledWithMatch('robotcop', true);
-     });
-     it('calls habitapi.user.updateTaskScore with default direction');
-     it('calls habitapi.user.updateTaskScore with default id');
-   });*/
+    * @TODO: When HabitAPI Module is updated to use new prototype schema, write tests involving the api
+    */
 
 });
