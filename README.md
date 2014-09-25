@@ -6,7 +6,7 @@ IRC adaptor for [HabitRPG](https://habitrpg.com) (to be used in conjunction with
 ##Requirements and Set Up
 This should be installed in conjunction with [haxfred-irc](https://github.com/haxiom/haxfred-irc) and [haxfred-irc-upvote adaptor](https://github.com/haxiom/haxfred-irc-upvote).
 
-You must have a config file with the usernames of your irc users and their UUIDs and API Tokens from [HabitRPG](https://habitrpg.com). The file can be called whatever you want, but the path to the file must be determined in Haxfred's config.json with the key name "HabitRPGUsers". If the key is not found, the module will not load.
+You must have a config file with the usernames of your irc users and their UUIDs and API Tokens from [HabitRPG](https://habitrpg.com). The file can be called whatever you want, but the path to the file must be determined in Haxfred's config.json with the key name "HabitRPGUsers". If the key is not found, the module will not load. The path of the config is relative to the Haxfred's location.
 
 ###Example Json config for HabitRPGUsers
 ```
@@ -38,10 +38,6 @@ You can set the name of the habit that gets added to your user's accounts by add
 }
 
 ```
-
-## A Note About the Path to the Config File
-
-
 
 ##Todo's
 * Make kinds of emits completely configurable
