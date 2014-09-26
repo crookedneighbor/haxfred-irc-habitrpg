@@ -78,3 +78,31 @@ describe('Sending Data to HabitRPG', function () {
     */
 
 });
+
+describe('test error reporting for config', function () {
+  it('should through console.error when no habitRPGUsers is provided', function () {
+    sinon.spy(console, 'error')
+    haxfred = new Haxfred({
+      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-irc-habitrpg'],
+      nicks: [ 'haxfred' ],
+      channels: [
+        '#foo'
+      ],
+      habitRPGUsers: null,
+      habitRPGEmits: {
+        "irc.upvote": {
+          recipient: "recipient",
+          id: "upvote",
+          direction: true
+        }
+      },
+      rootDir: path.resolve(__dirname, '../lib')
+    });
+
+    haxfred.initialize();
+
+    expect(console.error).to.be.called;
+
+    console.error.restore();
+  });
+});
