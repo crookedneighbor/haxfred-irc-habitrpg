@@ -80,12 +80,14 @@ describe('Sending Data to HabitRPG', function () {
 });
 
 describe('test error reporting for config', function () {
+
   beforeEach(function(){
     sinon.spy(console, 'error')
   });
   afterEach(function() {
     console.error.restore();
   });
+
   it('should throw console.error when no habitRPGUsers is provided', function () {
     haxfred = new Haxfred({
       adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-irc-habitrpg'],
@@ -93,7 +95,6 @@ describe('test error reporting for config', function () {
       channels: [
         '#foo'
       ],
-      habitRPGUsers: null,
       habitRPGEmits: {
         "irc.upvote": {
           recipient: "recipient",
@@ -107,6 +108,24 @@ describe('test error reporting for config', function () {
     haxfred.initialize();
 
     expect(console.error).to.be.calledWith("No config found for Habit RPG users.");
+
+  });
+
+  it('should throw console.error when habitRPGEmits is not an object', function () {
+    haxfred = new Haxfred({
+      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-irc-habitrpg'],
+      nicks: [ 'haxfred' ],
+      channels: [
+        '#foo'
+      ],
+      habitRPGUsers: '../../../test/testconfig.json',
+      habitRPGEmits: "not an object",
+      rootDir: path.resolve(__dirname, '../lib')
+    });
+
+    haxfred.initialize();
+
+    expect(console.error).to.be.calledWith("habitRPGEmits must be an object");
 
   });
 });
