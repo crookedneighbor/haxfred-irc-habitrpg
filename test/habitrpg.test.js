@@ -80,8 +80,13 @@ describe('Sending Data to HabitRPG', function () {
 });
 
 describe('test error reporting for config', function () {
-  it('should through console.error when no habitRPGUsers is provided', function () {
+  beforeEach(function(){
     sinon.spy(console, 'error')
+  });
+  afterEach(function() {
+    console.error.restore();
+  });
+  it('should throw console.error when no habitRPGUsers is provided', function () {
     haxfred = new Haxfred({
       adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-irc-habitrpg'],
       nicks: [ 'haxfred' ],
@@ -101,8 +106,7 @@ describe('test error reporting for config', function () {
 
     haxfred.initialize();
 
-    expect(console.error).to.be.called;
+    expect(console.error).to.be.calledWith("No config found for Habit RPG users.");
 
-    console.error.restore();
   });
 });
