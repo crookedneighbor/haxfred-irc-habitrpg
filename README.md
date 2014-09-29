@@ -1,7 +1,7 @@
 haxfred-irc-habitrpg
 ====================
 
-IRC adaptor for [HabitRPG](https://habitrpg.com) (to be used in conjunction with [haxfred-irc-upvote adaptor](https://github.com/haxiom/haxfred-irc-upvote)). When Haxfred emits an upvote, the module checks if the recipient of the upvote is listed in the HabitRPGUsers config, and if the user is, Haxfred sends some experience and gold to the user's HabitRPG account.
+IRC adaptor for [HabitRPG](https://habitrpg.com). When Haxfred emits an event that the module is listening for, the module checks if the recipient of the event is listed in the HabitRPGUsers config, and if the user is, Haxfred sends some experience and gold to the user's HabitRPG account.
 
 ##Requirements and Set Up
 This should be installed in conjunction with [haxfred-irc](https://github.com/haxiom/haxfred-irc) and [haxfred-irc-upvote adaptor](https://github.com/haxiom/haxfred-irc-upvote).
