@@ -151,3 +151,33 @@ describe('test error reporting for config', function () {
 
   });
 });
+
+describe('Testing user helper', function () {
+  it('Expect users object to not include users with missing uuid or tokens, but to include users that do have the correct keys', function() {
+
+    var config = {
+      hades: {
+        uuids: "foo",
+        token: "bar"
+      },
+      Persephone: {
+        uuid: "foo",
+        token: "bar"
+      },
+      Orpheus: {
+        uuid: "foo"
+      },
+      Eurdice : {}
+    };
+
+    var users = userHelper.formatUsers(config),
+        blankObject = {};
+
+    expect(users).to.not.have.property('hades');
+    expect(users).to.not.have.property('orpheus');
+    expect(users).to.not.have.property('eurdice');
+    expect(users).to.have.property('persephone');
+    
+  });
+
+});
