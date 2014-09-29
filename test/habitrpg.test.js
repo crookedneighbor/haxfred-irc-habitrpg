@@ -1,13 +1,18 @@
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
-var expect = require('chai').expect;
-var assert = require('chai').assert;
-var path = require('path');
-var chai = require('chai');
+var sinon       = require('sinon');
+var sinonChai   = require('sinon-chai');
+var expect      = require('chai').expect;
+var assert      = require('chai').assert;
+var path        = require('path');
+var chai        = require('chai');
 
-var Haxfred = require('haxfred');
+var Haxfred     = require('haxfred');
+
+// Helpers
 var habitHelper = require('../lib/helpers/habit');
-var irc_habit = require('../lib/haxfred-irc-habitrpg');
+var emitHelper  = require('../lib/helpers/emits');
+var userHelper  = require('../lib/helpers/users');
+
+var irc_habit   = require('../lib/haxfred-irc-habitrpg');
 
 chai.use(expect);
 chai.use(assert);
