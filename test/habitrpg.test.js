@@ -152,8 +152,7 @@ describe('test error reporting for config', function () {
   });
 });
 
-describe('Testing user helper', function () {
-  it('Expect users object to not include users with missing uuid or tokens, but to include users that do have the correct keys', function() {
+describe('Testing user helper', function() {
 
     var config = {
       hades: {
@@ -170,14 +169,28 @@ describe('Testing user helper', function () {
       Eurdice : {}
     };
 
-    var users = userHelper.formatUsers(config),
-        blankObject = {};
+    var users = userHelper.formatUsers(config);
 
+  it('Expect users object to not include user with missing uuid', function() {
     expect(users).to.not.have.property('hades');
-    expect(users).to.not.have.property('orpheus');
-    expect(users).to.not.have.property('eurdice');
-    expect(users).to.have.property('persephone');
-    
   });
 
+  it('Expect users object to not include user with missing token', function() {
+    expect(users).to.not.have.property('orpheus');
+  });
+
+  it('Expect users object to not include user with missing uuid and token', function() {
+    expect(users).to.not.have.property('eurdice');
+  });
+
+  it('Expect users object to include user with uuid and token', function() {
+    expect(users).to.have.property('persephone');
+  });
+});
+
+describe('Testing emits helper', function() {
+  it('Expect ', function() {
+
+
+  });
 });
