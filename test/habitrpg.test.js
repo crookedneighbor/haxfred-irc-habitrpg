@@ -128,4 +128,21 @@ describe('test error reporting for config', function () {
     expect(console.error).to.be.calledWith("habitRPGEmits must be an object");
 
   });
+
+  it('should throw console.error when users config file is missing a uuid or token', function() {
+    haxfred = new Haxfred({
+      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-irc-habitrpg'],
+      nicks: [ 'haxfred' ],
+      channels: [ '#foo' ],
+      habitRPGUsers: '../../../test/badtestconfig.json',
+      rootDir: path.resolve(__dirname, '../lib')
+    });
+
+    haxfred.initialize();
+
+    expect(console.error).to.be.calledWith("Alice is missing a uuid/token, or is not formatted correctly");
+    expect(console.error).to.be.calledWith("boB is missing a uuid/token, or is not formatted correctly");
+    // @TODO, get value of users variable to make sure valid users still come through
+
+  });
 });
