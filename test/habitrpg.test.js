@@ -6,7 +6,7 @@ var path = require('path');
 var chai = require('chai');
 
 var Haxfred = require('haxfred');
-var helpers = require('../lib/helpers');
+var habitHelper = require('../lib/helpers/habit');
 var irc_habit = require('../lib/haxfred-irc-habitrpg');
 
 chai.use(expect);
@@ -41,11 +41,11 @@ describe('Sending Data to HabitRPG', function () {
    describe('listen for upvote event and if username is in config file, call sendToHabit()', function () {
 
      beforeEach(function() {
-       sinon.stub(helpers, "sendToHabit");
+       sinon.stub(habitHelper, "sendToHabit");
      });
 
      afterEach(function() {
-       helpers.sendToHabit.restore();
+       habitHelper.sendToHabit.restore();
      });
 
      it('username is in config file, should call sendToHabit()', function(done){
@@ -54,7 +54,7 @@ describe('Sending Data to HabitRPG', function () {
            recipient: 'Alice',
            sender: 'bob',
            onComplete: function() {
-             sinon.assert.calledWithMatch(helpers.sendToHabit, "ping", "pong", "upvote", true);
+             sinon.assert.calledWithMatch(habitHelper.sendToHabit, "ping", "pong", "upvote", true);
              done();
            }
         });
@@ -66,7 +66,7 @@ describe('Sending Data to HabitRPG', function () {
            recipient: 'JERK',
            sender: 'bob',
            onComplete: function() {
-             sinon.assert.neverCalledWith(helpers.sendToHabit, "ping", "pong", "upvote", true);
+             sinon.assert.neverCalledWith(habitHelper.sendToHabit, "ping", "pong", "upvote", true);
              done();
            }
         });
