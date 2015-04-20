@@ -1,21 +1,20 @@
-haxfred-irc-habitrpg
+haxfred-habitrpg
 ====================
 
-IRC adaptor for [HabitRPG](https://habitrpg.com). When Haxfred emits an event that the module is listening for, the module checks if the recipient of the event is listed in the HabitRPGUsers config, and if the user is, Haxfred sends some experience and gold to the user's HabitRPG account.
+Adaptor for [HabitRPG](https://habitrpg.com). When Haxfred emits an event that the module is listening for, the module checks if the recipient of the event is listed in the HabitRPGUsers config, and if the user is, Haxfred sends some experience and gold to the user's HabitRPG account.
 
 ##Requirements and Set Up
-This should be installed in conjunction with [haxfred-irc](https://github.com/haxiom/haxfred-irc) and [haxfred-irc-upvote adaptor](https://github.com/haxiom/haxfred-irc-upvote).
 
-You must have a config file with the usernames of your irc users and their UUIDs and API Tokens from [HabitRPG](https://habitrpg.com). The file can be called whatever you want, but the path to the file must be determined in Haxfred's config.json with the key name "HabitRPGUsers". If the key is not found, the module will not load. The path of the config is relative to the Haxfred's location.
+You must have a config file with the user ids of your users and their UUIDs and API Tokens from [HabitRPG](https://habitrpg.com). The file can be called whatever you want, but the path to the file must be determined in Haxfred's config.json with the key name "HabitRPGUsers". If the key is not found, the module will not load. The path of the config is relative to the Haxfred's location.
 
 ####Example Json config for HabitRPGUsers
 ```json
 { 
-  "ircUserName" : {
+  "UserID" : {
     "uuid": "UUID-From-Habit-RPG",
     "token": "API-Token-From-Habit-RPG"
   },
-  "anotherUserName" : {
+  "anotherUserID" : {
     "uuid": "UUID-From-Habit-RPG",
     "token": "API-Token-From-Habit-RPG"
   }
@@ -58,6 +57,11 @@ Here is an example of a few emits:
     "direction": true,
     "recipient": "recipient"
   },
+  "slack.upvote": {
+    "id": "upvote",
+    "direction": true,
+    "recipient": "recipient"
+  },
   "irc.swearing-detector": {
     "id": "swearing",
     "direction": false,
@@ -84,7 +88,7 @@ If no key is specified for emits, the following will serve as the default emit:
 
 ```json
 {
-  "irc.upvote": {
+  "slack.upvote": {
     "id": "haxfred (or your default_id)",
     "direction": true,
     "recipient": "recipient"
@@ -98,12 +102,12 @@ If no key is specified for emits, the following will serve as the default emit:
 ...
   "habitRPGUsers": "./config-files/habitrpgusers.json",
   "habitRPGEmits": {
-    "irc.upvote": {
+    "slack.upvote": {
       "direction": true,
       "recipient": "recipient"
     }
   },
-  "habitRPG_id": "irc-chat",
+  "habitRPG_id": "slack-chat",
 ...
 }
 ```
