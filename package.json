@@ -10,6 +10,8 @@
     "test": "test"
   },
   "scripts": {
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm test && npm run build",
     "lint": "standard --verbose | snazzy",
     "test": "npm run lint && mocha"
   },
@@ -17,8 +19,11 @@
     "habitrpg-api": ""
   },
   "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.3.13",
     "chai": "^3.4.1",
-    "haxfred": "haxiom/haxfred#development",
+    "haxfred": "haxiom/haxfred",
     "haxfred-irc": "haxiom/haxfred-irc",
     "mocha": "^2.3.4",
     "sinon": "^1.10.3",
