@@ -10,18 +10,21 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -w"
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run lint && mocha"
   },
   "dependencies": {
     "habitrpg-api": ""
   },
   "devDependencies": {
-    "chai": "^1.9.1",
-    "haxfred": "git://github.com/haxiom/haxfred#development",
+    "chai": "^3.4.1",
+    "haxfred": "haxiom/haxfred#development",
     "haxfred-irc": "haxiom/haxfred-irc",
-    "mocha": "^1.21.4",
+    "mocha": "^2.3.4",
     "sinon": "^1.10.3",
-    "sinon-chai": "^2.5.0"
+    "sinon-chai": "^2.5.0",
+    "snazzy": "^2.0.1",
+    "standard": "^5.4.1"
   },
   "author": {
     "name": "Haxiom"
@@ -29,5 +32,18 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/haxiom/haxfred-habitrpg/issues"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect",
+      "sandbox"
+    ]
   }
 }
