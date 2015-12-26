@@ -24,7 +24,7 @@ describe('Sending Data to HabitRPG', function () {
   var haxfred;
   beforeEach(function() {
     haxfred = new Haxfred({
-      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-habitrpg'],
+      adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [
         '#foo'
@@ -95,7 +95,7 @@ describe('test error reporting for config', function () {
 
   it('should throw console.error when no habitRPGUsers is provided', function () {
     haxfred = new Haxfred({
-      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-habitrpg'],
+      adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [
         '#foo'
@@ -118,7 +118,7 @@ describe('test error reporting for config', function () {
 
   it('should throw console.error when habitRPGEmits is not an object', function () {
     haxfred = new Haxfred({
-      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-habitrpg'],
+      adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [
         '#foo'
@@ -136,7 +136,7 @@ describe('test error reporting for config', function () {
 
   it('should throw console.error when users config file is missing a uuid or token', function() {
     haxfred = new Haxfred({
-      adapters: ['../node_modules/haxfred-irc/lib/haxfred-irc.js', 'haxfred-habitrpg'],
+      adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [ '#foo' ],
       habitRPGUsers: '../../../test/badtestconfig.json',
