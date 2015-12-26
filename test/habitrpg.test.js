@@ -1,27 +1,22 @@
-var sinon = require('sinon')
-var sinonChai = require('sinon-chai')
-var expect = require('chai').expect
-var assert = require('chai').assert
-var path = require('path')
-var chai = require('chai')
+import sinon from 'sinon'
+import sinonChai from 'sinon-chai'
+import { expect } from 'chai'
+import path from 'path'
+import chai from 'chai'
 
-var Haxfred = require('haxfred')
+import Haxfred from 'haxfred'
 
 // Helpers
-var habitHelper = require('../lib/helpers/habit')
-var emitHelper = require('../lib/helpers/emits')
-var userHelper = require('../lib/helpers/users')
+import habitHelper from '../lib/helpers/habit'
+import emitHelper from '../lib/helpers/emits'
+import userHelper from '../lib/helpers/users'
 
 chai.use(expect)
-chai.use(assert)
 chai.use(sinonChai)
 
 describe('Sending Data to HabitRPG', function () {
-  // Setup haxfred for tests
-  var haxfred
-
   beforeEach(function () {
-    haxfred = new Haxfred({
+    this.haxfred = new Haxfred({
       adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [
@@ -38,7 +33,7 @@ describe('Sending Data to HabitRPG', function () {
       rootDir: path.resolve(__dirname, '../lib')
     })
 
-    haxfred.initialize()
+    this.haxfred.initialize()
   })
 
   describe('listen for upvote event and if username is in config file, call sendToHabit()', function () {
@@ -51,7 +46,7 @@ describe('Sending Data to HabitRPG', function () {
     })
 
     it('username is in config file, should call sendToHabit()', function (done) {
-      haxfred.emit('irc.upvote', {
+      this.haxfred.emit('irc.upvote', {
         recipient: 'Alice',
         sender: 'bob',
         onComplete: function () {
@@ -62,7 +57,7 @@ describe('Sending Data to HabitRPG', function () {
     })
 
     it('username is not in config file, should not call sendToHabit()', function (done) {
-      haxfred.emit('irc.upvote', {
+      this.haxfred.emit('irc.upvote', {
         recipient: 'JERK',
         sender: 'bob',
         onComplete: function () {
@@ -87,7 +82,7 @@ describe('test error reporting for config', function () {
   })
 
   it('should throw console.error when no habitRPGUsers is provided', function () {
-    var haxfred = new Haxfred({
+    let haxfred = new Haxfred({
       adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [
@@ -109,7 +104,7 @@ describe('test error reporting for config', function () {
   })
 
   it('should throw console.error when habitRPGEmits is not an object', function () {
-    var haxfred = new Haxfred({
+    let haxfred = new Haxfred({
       adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [
@@ -126,7 +121,7 @@ describe('test error reporting for config', function () {
   })
 
   it('should throw console.error when users config file is missing a uuid or token', function () {
-    var haxfred = new Haxfred({
+    let haxfred = new Haxfred({
       adapters: ['haxfred-irc', 'haxfred-habitrpg'],
       nicks: [ 'haxfred' ],
       channels: [ '#foo' ],
@@ -143,7 +138,7 @@ describe('test error reporting for config', function () {
 })
 
 describe('Testing user helper', function () {
-  var config = {
+  let config = {
     hades: {
       uuids: 'foo',
       token: 'bar'
@@ -158,7 +153,7 @@ describe('Testing user helper', function () {
     Eurdice: {}
   }
 
-  var users = userHelper.formatUsers(config)
+  let users = userHelper.formatUsers(config)
 
   it('Expect users object to not include user with missing uuid', function () {
     expect(users).to.not.have.property('hades')
@@ -178,8 +173,8 @@ describe('Testing user helper', function () {
 })
 
 describe('Testing emits helper', function () {
-  var default_id = 'not haxfred'
-  var config = {
+  let default_id = 'not haxfred'
+  let config = {
     'irc.foo': {},
     'irc.bar': {
       id: 'bar',
@@ -199,7 +194,7 @@ describe('Testing emits helper', function () {
       direction: 'zing'
     }
   }
-  var emits = emitHelper.formatEmits(config)
+  let emits = emitHelper.formatEmits(config)
 
   it('Expect emit with no id specified to use the default id', function () {
     expect(emits['irc.foo']).to.have.property('id').to.equal('haxfred')
@@ -238,23 +233,23 @@ describe('Testing emits helper', function () {
   })
 
   it('Expect emits object to return false when a string is passed in instead of an object', function () {
-    var emitString = emitHelper.formatEmits('string')
+    let emitString = emitHelper.formatEmits('string')
     expect(emitString).to.equal(false)
   })
 
   it('Expect emits object to return false when a number is passed in instead of an object', function () {
-    var emitNumber = emitHelper.formatEmits(42)
+    let emitNumber = emitHelper.formatEmits(42)
     expect(emitNumber).to.equal(false)
   })
 
   it('Expect emits object to return false when blank object is passed in', function () {
-    var blankEmit = emitHelper.formatEmits({})
+    let blankEmit = emitHelper.formatEmits({})
     expect(blankEmit).to.equal(false)
   })
 
   it('Expect emit with no id specified to use default id passed into function', function () {
-    var configObj = {'irc.foo': {}}
-    var emitsObj = emitHelper.formatEmits(configObj, default_id)
+    let configObj = {'irc.foo': {}}
+    let emitsObj = emitHelper.formatEmits(configObj, default_id)
     expect(emitsObj['irc.foo']).to.have.property('id').to.equal('not haxfred')
   })
 })
