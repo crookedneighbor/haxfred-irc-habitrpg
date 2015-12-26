@@ -11,7 +11,6 @@ import habitHelper from '../lib/helpers/habit'
 import emitHelper from '../lib/helpers/emits'
 import userHelper from '../lib/helpers/users'
 
-chai.use(expect)
 chai.use(sinonChai)
 
 describe('Sending Data to HabitRPG', function () {
